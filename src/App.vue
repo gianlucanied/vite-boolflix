@@ -2,11 +2,10 @@
 
 // Importo Axios
 import axios from 'axios';
-import AppHeader from './components/AppHeader.vue';
 
 // Importo componenti
+import AppHeader from './components/AppHeader.vue';
 import FilmList from './components/FilmList.vue';
-import SingleFilm from './components/FilmList.vue';
 
 // Importo store
 import {store} from './store';
@@ -25,10 +24,16 @@ export default {
     getFilm() {
       axios
       .get(store.apiUrl)
+      .then((res => {
+        console.log(store.apiUrl);
+      }))
+      .catch((err)=>{
+        console.log("Errori", err);
+      })
     }
   },
   created() {
-    
+    this.getFilm();
   }
   
 
