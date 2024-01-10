@@ -1,13 +1,37 @@
 <script>
+
+// Importo Axios
+import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+
+// Importo componenti
 import FilmList from './components/FilmList.vue';
 import SingleFilm from './components/FilmList.vue';
+
+// Importo store
+import {store} from './store';
+
 export default {
   components: {
     AppHeader,
     FilmList,
-    SingleFilm
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    getFilm() {
+      axios
+      .get(store.apiUrl)
+    }
+  },
+  created() {
+    
   }
+  
+
 }
 </script>
 
