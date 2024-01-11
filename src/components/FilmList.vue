@@ -1,9 +1,18 @@
 <script>
 import SingleFilm from './SingleFilm.vue'
+
+// Importo store
+import {store} from '../store';
+
 export default {
     name: 'FilmList',
     components: {
         SingleFilm
+    },
+    data() {
+        return {
+            store,
+        }
     }
 }
 </script>
@@ -12,8 +21,8 @@ export default {
     <section class="container">
 
         <div class="row">
-            <div class="col-4">
-                <SingleFilm/>
+            <div v-for="film in store.filmList" class="col-4">
+                <SingleFilm :info="film"/>
             </div>
         </div>
     </section>

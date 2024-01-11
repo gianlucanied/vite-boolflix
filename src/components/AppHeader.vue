@@ -1,13 +1,22 @@
 <script>
+import { store } from '../store';
 export default {
     name: 'AppHeader',
     props: ['message'],
+    data() {
+        return {
+            store,
+        }
+    }
 }
+
 </script>
 
 <template>
     <header class="container-fluid">
         <h1>{{ message }}</h1>
+        <input type="text" placeholder="Cerca film" v-model="store.searchFilm">
+        <button type="submit" @click.prevent="$emit('performSearch')">Search</button>
     </header>
 
 </template>

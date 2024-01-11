@@ -22,10 +22,16 @@ export default {
   },
   methods: {
     getFilm() {
+      let myUrl = store.apiUrl;
+
+      if(store.searchFilm !== "") {
+        myUrl+= `&query=${store.searchFilm}`
+      }
       axios
       .get(store.apiUrl)
       .then((res => {
-        console.log(store.apiUrl);
+        console.log(res.data);
+        store.filmList = res.data;
       }))
       .catch((err)=>{
         console.log("Errori", err);
@@ -41,7 +47,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader message="BoolFlix"/>
+  <AppHeader @performSearch="getFilm" message="BoolFlix"/>
 
   <main>
     <FilmList/>
