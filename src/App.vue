@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // Importo componenti
 import AppHeader from './components/AppHeader.vue';
-import FilmList from './components/FilmList.vue';
+import FilmSerieList from './components/FilmSerieList.vue';
 
 // Importo store
 import {store} from './store';
@@ -13,7 +13,7 @@ import {store} from './store';
 export default {
   components: {
     AppHeader,
-    FilmList,
+    FilmSerieList,
   },
   data() {
     return {
@@ -35,7 +35,6 @@ export default {
       axios
       .get(myUrl)
       .then((res => {
-        console.log(res.data.results);
         store.filmList = res.data.results;
       }))
       .catch((err)=>{
@@ -53,7 +52,6 @@ export default {
       axios
       .get(myUrlSerie)
       .then((res => {
-        console.log(res.data.results);
         store.serieList = res.data.results;
         console.log("store.serieList:", store.serieList);
       }))
@@ -74,7 +72,7 @@ export default {
   <AppHeader @performSearch="performSearch" message="BoolFlix"/>
 
   <main>
-    <FilmList/>
+    <FilmSerieList/>
   </main>
 
 </template>
