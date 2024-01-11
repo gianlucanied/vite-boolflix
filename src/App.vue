@@ -21,6 +21,10 @@ export default {
     }
   },
   methods: {
+    performSearch(){
+      this.getFilm();
+      this.getSerie();
+    },
     getFilm() {
       let myUrl = store.apiUrl;
 
@@ -36,18 +40,36 @@ export default {
       .catch((err)=>{
         console.log("Errori", err);
       })
+    },
+    getSerie() {
+      let myUrlSerie = store.apiUrlSerie;
+
+      if(store.searchSerie !== "") {
+        myUrlSerie+= `&query=${store.searchSerie}`
+        console.log("searchSerie");
+      }
+      axios
+      .get(myUrlSerie)
+      .then((res => {
+        console.log(res.data.results);
+        store.serieList = res.data.results;
+        console.log("store.serieList:", store.serieList);
+      }))
+      .catch((err)=>{
+        console.log("Errori", err);
+      })
     }
   },
   created() {
     this.getFilm();
+    this.getSerie();
   }
   
-
 }
 </script>
 
 <template>
-  <AppHeader @performSearch="getFilm" message="BoolFlix"/>
+  <AppHeader @performSearch="performSearch" message="BoolFlix"/>
 
   <main>
     <FilmList/>
