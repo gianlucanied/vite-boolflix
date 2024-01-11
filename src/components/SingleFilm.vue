@@ -10,7 +10,7 @@ export default {
                 'en': '/en.webp',
                 'it': '/it.png',
             },
-            defaultFlag: '/bandiera-pirata.jpg', 
+            defaultFlag: '/bandiera-mondo.jpg', 
         };
     },
     methods: {
