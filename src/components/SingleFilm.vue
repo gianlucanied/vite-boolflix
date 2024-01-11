@@ -7,14 +7,13 @@ export default {
     data() {
         return {
             languageFlags: {
-                'en': './en.webp',
-                'it': './it.png',
+                'en': '/en.webp',
+                'it': '/it.png',
             }
         };
     },
     methods: {
         getLanguageFlag(language) {
-            console.log(language);
             return this.languageFlags[language] || '';
         }
     }
@@ -24,16 +23,18 @@ export default {
 
 <template>
     <div>
-        <img :src="getLanguageFlag(info.original_language)" alt="">
+        
         <h4>{{ info.original_title }}</h4>
         <h4>{{ info.title }}</h4>
-        <h4>{{ info.original_language }}</h4>
+        <img :src="getLanguageFlag(info.original_language)" alt="">
         <h4>{{ info.vote_average }}</h4>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
-
+img {
+    width: 20px;
+}
 
 </style>
