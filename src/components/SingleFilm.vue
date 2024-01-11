@@ -9,12 +9,13 @@ export default {
             languageFlags: {
                 'en': '/en.webp',
                 'it': '/it.png',
-            }
+            },
+            defaultFlag: '/bandiera-pirata.jpg', 
         };
     },
     methods: {
         getLanguageFlag(language) {
-            return this.languageFlags[language] || '';
+            return this.languageFlags[language] || this.defaultFlag;
         }
     }
 }
@@ -23,7 +24,6 @@ export default {
 
 <template>
     <div>
-        
         <h4>{{ info.original_title }}</h4>
         <h4>{{ info.title }}</h4>
         <img :src="getLanguageFlag(info.original_language)" alt="">

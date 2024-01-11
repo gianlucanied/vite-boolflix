@@ -26,10 +26,11 @@ export default {
       this.getSerie();
     },
     getFilm() {
+      console.log('getFilm called with searchFilmSerie:', store.searchFilmSerie);
       let myUrl = store.apiUrl;
 
-      if(store.searchFilm !== "") {
-        myUrl+= `&query=${store.searchFilm}`
+      if(store.searchFilmSerie !== "") {
+        myUrl+= `&query=${store.searchFilmSerie}`
       }
       axios
       .get(myUrl)
@@ -42,11 +43,12 @@ export default {
       })
     },
     getSerie() {
+      console.log('getSerie called with searchFilmSerie:', store.searchFilmSerie);
       let myUrlSerie = store.apiUrlSerie;
 
-      if(store.searchSerie !== "") {
-        myUrlSerie+= `&query=${store.searchSerie}`
-        console.log("searchSerie");
+      if(store.searchFilmSerie !== "") {
+        myUrlSerie+= `&query=${store.searchFilmSerie}`
+        console.log("searchFilmSerie");
       }
       axios
       .get(myUrlSerie)
