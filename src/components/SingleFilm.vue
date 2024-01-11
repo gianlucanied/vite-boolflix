@@ -7,17 +7,19 @@ export default {
     data() {
         return {
             languageFlags: {
-                'en': '',
-                'it': '',
+                'en': './en.webp',
+                'it': './it.png',
             }
         };
     },
     methods: {
         getLanguageFlag(language) {
+            console.log(language);
             return this.languageFlags[language] || '';
         }
     }
 }
+
 </script>
 
 <template>
