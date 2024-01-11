@@ -28,10 +28,10 @@ export default {
         myUrl+= `&query=${store.searchFilm}`
       }
       axios
-      .get(store.apiUrl)
+      .get(myUrl)
       .then((res => {
-        console.log(res.data);
-        store.filmList = res.data;
+        console.log(res.data.results);
+        store.filmList = res.data.results;
       }))
       .catch((err)=>{
         console.log("Errori", err);
