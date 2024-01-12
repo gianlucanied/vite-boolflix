@@ -26,7 +26,6 @@ export default {
       this.getSerie();
     },
     getFilm() {
-      console.log('getFilm called with searchFilmSerie:', store.searchFilmSerie);
       let myUrl = store.apiUrl;
 
       if(store.searchFilmSerie !== "") {
@@ -35,14 +34,23 @@ export default {
       axios
       .get(myUrl)
       .then((res => {
-        store.filmList = res.data.results;
+        let newResp = res.data.results;
+        newResp = newResp.map((element)=> {
+          console.log(store.apiUrlImg + element.poster_path);
+          return {
+            ...element,
+            poster_path:store.apiUrlImg + element.poster_path
+          }
+        })
+        
+        store.filmList = newResp;
+        console.log("newResp", newResp);
       }))
       .catch((err)=>{
         console.log("Errori", err);
       })
     },
     getSerie() {
-      console.log('getSerie called with searchFilmSerie:', store.searchFilmSerie);
       let myUrlSerie = store.apiUrlSerie;
 
       if(store.searchFilmSerie !== "") {
@@ -52,7 +60,15 @@ export default {
       axios
       .get(myUrlSerie)
       .then((res => {
-        store.serieList = res.data.results;
+        let newResp = res.data.results;
+        newResp = newResp.map((element)=> {
+          console.log(store.apiUrlImg + element.poster_path);
+          return {
+            ...element,
+            poster_path:store.apiUrlImg + element.poster_path
+          }
+        })
+        store.serieList = newResp;
         console.log("store.serieList:", store.serieList);
       }))
       .catch((err)=>{
@@ -60,9 +76,10 @@ export default {
       })
     }
   },
+  
   created() {
-    this.getFilm();
-    this.getSerie();
+    // this.getFilm();
+    // this.getSerie();
   }
   
 }

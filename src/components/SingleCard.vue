@@ -13,11 +13,12 @@ export default {
             },
             defaultFlag: '/bandiera-mondo.jpg', 
         };
+        
     },
     methods: {
         getLanguageFlag(language) {
             return this.languageFlags[language] || this.defaultFlag;
-        }
+        },
     }
 }
 
@@ -25,22 +26,23 @@ export default {
 
 <template>
     <div class="card" v-if="type==='film'">
+        <img :src="info.poster_path" alt="">
         <h4>{{ info.original_title }}</h4>
         <h4>{{ info.title }}</h4>
-        <img :src="getLanguageFlag(info.original_language)" alt="">
+        <img class="language" :src="getLanguageFlag(info.original_language)" alt="">
         <h4>{{ info.vote_average }}</h4>
     </div>
     <div class="card" v-else>
         <h4>{{ info.original_name }}</h4>
         <h4>{{ info.name }}</h4>
-        <img :src="getLanguageFlag(info.original_language)" alt="">
+        <img class="language" :src="getLanguageFlag(info.original_language)" alt="">
         <h4>{{ info.vote_average }}</h4>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
-img {
+.language {
     width: 20px;
 }
 
