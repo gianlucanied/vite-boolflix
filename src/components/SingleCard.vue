@@ -20,7 +20,7 @@ export default {
             return this.languageFlags[language] || this.defaultFlag;
         },
         divide(value) {
-            return value / 2;
+            return Math.ceil(value / 2);
         },
     }
 }
