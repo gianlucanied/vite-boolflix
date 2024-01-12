@@ -19,6 +19,9 @@ export default {
         getLanguageFlag(language) {
             return this.languageFlags[language] || this.defaultFlag;
         },
+        divide(value) {
+            return value / 2;
+        },
     }
 }
 
@@ -30,13 +33,13 @@ export default {
         <h4>{{ info.original_title }}</h4>
         <h4>{{ info.title }}</h4>
         <img class="language" :src="getLanguageFlag(info.original_language)" alt="">
-        <h4>{{ info.vote_average }}</h4>
+        <h4>{{ divide(info.vote_average) }}</h4>
     </div>
     <div class="card" v-else>
         <h4>{{ info.original_name }}</h4>
         <h4>{{ info.name }}</h4>
         <img class="language" :src="getLanguageFlag(info.original_language)" alt="">
-        <h4>{{ info.vote_average }}</h4>
+        <h4>{{ divide(info.vote_average) }}</h4>
     </div>
 </template>
 
