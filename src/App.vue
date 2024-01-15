@@ -21,7 +21,7 @@ export default {
     }
   },
   methods: {
-    performSearch(){
+    Search(){
       this.getFilm();
       this.getSerie();
     },
@@ -86,7 +86,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @performSearch="performSearch" message="BoolFlix"/>
+  <AppHeader @Search="Search" message="BoolFlix"/>
 
   <main>
     <FilmSerieList/>
