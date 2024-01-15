@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // Importo componenti
 import AppHeader from './components/AppHeader.vue';
-import FilmSerieList from './components/FilmSerieList.vue';
+import AppMain from './components/AppMain.vue';
 
 // Importo store
 import {store} from './store';
@@ -13,7 +13,7 @@ import {store} from './store';
 export default {
   components: {
     AppHeader,
-    FilmSerieList,
+    AppMain,
   },
   data() {
     return {
@@ -89,7 +89,7 @@ export default {
   <AppHeader @Search="Search" message="BoolFlix"/>
 
   <main>
-    <FilmSerieList/>
+    <AppMain/>
   </main>
 
 </template>
