@@ -14,7 +14,7 @@ export default {
 <template>
     <header class="container-fluid">
         <h1>{{ message }}</h1>
-        <input type="text" placeholder="Cerca film" v-model="store.searchFilmSerie">
+        <input type="text" placeholder="Cerca film" v-model="store.searchFilmSerie" @keyup.enter="$emit('Search')">
         <button type="submit" @click.prevent="$emit('Search')">Search</button>
 
     </header>

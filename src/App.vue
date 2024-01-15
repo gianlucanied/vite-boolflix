@@ -77,10 +77,10 @@ export default {
     }
   },
   
-  created() {
-    // this.getFilm();
-    // this.getSerie();
-  }
+  // created() {
+  //   // this.getFilm();
+  //   // this.getSerie();
+  // }
   
 }
 </script>
